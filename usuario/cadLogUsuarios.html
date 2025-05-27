@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../cssUsuarios/cadastroUsuarios.css">
+    <link rel="stylesheet" href="../cssUsuarios/loginUsuarios.css">
+    <link href="../BDPhp/conexRaizUrb.php">
+    <link href="../BDPhp/raizUrbanaBD.php">
+    <title>Usuário</title>
+</head>
+
+<body>
+    <h1>Novo Usuário</h1>
+    <div>
+        <form id='cadUsuario' method="POST">
+            <div>
+                <label class="lblNomeUsuario">Nome Completo: </label>
+                <input class="nomeUsuario" type="text" name="nomeUsuario" id="nomeUsuario" required placeholder="Digite seu nome completo" autofocus>
+            </div>
+            <div>
+                <label class="email">E-mail: </label>
+                <input type="email" name="email" id="email" required placeholder="Seu e-mail">
+            </div>
+            <div>
+                <label class="lblSenha">Senha: </label>
+                <input class="iptSenha" type="password" name="senha" id="senha" required placeholder="Digite uma senha de 6 dígitos.">
+            </div>
+            <div>
+                <label class="lblConfirmarSenha">Cofirmar Senha: </label>
+                <input class="iptConfirmarSenha" type="password" name="confirmarSenha" id="confirmarSenha" required placeholder="Digite novamente sua senha para confirmação">
+            </div>
+            <div>
+                <label class="">CPF: </label>
+                <input type="text" name="cpf" id="cpf" required>
+            </div>
+            <div>
+                <label class="">Telefone: </label>
+                <input type="tel" name="telefone" id="telefone" required>
+            </div>
+            <div>
+                <label class="">Celular: </label>
+                <input type="tel" name="celular" id="celular" required>
+            </div>
+            <div>
+                <label class="">Nascimento: </label>
+                <input type="date" name="dataNasc" id="dataNasc" required>
+            </div>
+            <div>
+                <label class="">Logradouro: </label>
+                <input type="text" name="rua" id="rua" required>
+            </div>
+            <div>
+                <label class="">Nº: </label>
+                <input type="text" name="numero" id="numero" required>
+            </div>
+            <div>
+                <label class="">Bairro: </label>
+                <input type="text" name="bairro" id="bairro" required>
+            </div>
+            <div>
+                <label class="">Cidade: </label>
+                <input type="text" name="cidade" id="cidade" required>
+            </div>
+            <div>
+                <label class="">UF: </label>
+                <input type="text" name="uf" id="uf" required>
+            </div>
+            <div>
+                <label class="">CEP: </label>
+                <input type="text" name="cep" id="cep" required>
+            </div>
+            <div>
+                <button class="btnCadastrar" type="submit" onclick="cadUsuario()">Cadastrar</button>
+            </div>
+            <div>
+                <button class="btnCancelar" type="button" onclick="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <script src="../jsUsuarios/cadLogUsuarios.js" defer></script>
+</body>
+
+</html>

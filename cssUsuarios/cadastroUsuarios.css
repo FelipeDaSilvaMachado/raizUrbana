@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.lblNomeUsuario {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+}
+
+.nomeUsuario {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+    width: 450px;
+}
+
+.lblSenha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+}
+
+.iptSenha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+    width: 450px;
+}
+
+.lblConfirmarSenha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+}
+
+.iptConfirmarSenha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+    width: 450px;
+}
