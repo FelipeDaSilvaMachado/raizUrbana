@@ -1,79 +1,175 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     verificarConexao();
-// });
+// Espera o DOM carregar completamente
+document.addEventListener("DOMContentLoaded", function () {
+    // Tenta verificar se já existe uma sessão ativa ao carregar a página
+    // verificarSessao(); // Descomentado se a intenção for verificar login ao entrar na pág de cadastro
 
-function cadUsuario() {
-    document.getElementById('btnCadastrar').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formCadastro = new formCadastro();
-        formCadastro.append('acao', 'cadUsuario'); // Define que é CADASTRO 
-        formCadastro.append('nomeUsuario', document.getElementById('nomeUsuario').value);
-        formCadastro.append('email', document.getElementById('email').value);
-        formCadastro.append('senha', document.getElementById('senhaCadastro').value);
-        formCadastro.append('confirmarSenha', document.getElementById('confirmarSenha').value);
-        formCadastro.append(document.getElementById('cpf').value);
-        formCadastro.append(document.getElementById('telefone').value);
-        formCadastro.append(document.getElementById('celular').value);
-        formCadastro.append(document.getElementById('dataNasc').value);
-        formCadastro.append(document.getElementById('rua').value);
-        formCadastro.append(document.getElementById('numero').value);
-        formCadastro.append(document.getElementById('bairro').value);
-        formCadastro.append(document.getElementById('cidade').value);
-        formCadastro.append(document.getElementById('uf').value);
-        formCadastro.append(document.getElementById('cep').value);
+    const form = document.getElementById("cadUsuarioForm");
+    const btnCadastrar = document.getElementById("btnCadastrar");
+    const btnCancelar = document.getElementById("btnCancelar");
+    const cepInput = document.getElementById("cep"); // Adicionado para validação no submit
 
-        // Envia para processar.php fetch('processar.php', { method: 'POST', body: formData })
-    });
-    cadastro = 
-    {
-        nome: 'nomeUsuario',
-        email: 'email',
-        senha: 'senha',
-        confirmarSenha: 'confirmarSenha',
-        cpf: 'cpf',
-        telefone: 'telefone',
-        celular: 'celular',
-        dataNasc: 'dataNasc',
-        rua: 'rua',
-        numero: 'numero',
-        bairro: 'bairro',
-        cidade: 'cidade',
-        uf: 'uf',
-        cep: 'cep'
+    if (form && btnCadastrar) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            console.log("Formulário submetido via JS");
+            // Chama a função de cadastro que agora inclui a validação do CEP
+            cadastrarUsuario(form);
+        });
     }
 
-    formCadastro.append(document.ElementById(cadastro).value);
+    if (btnCancelar) {
+        btnCancelar.addEventListener("click", function () {
+            console.log("Botão Cancelar clicado");
+            cancelarCadastro(form);
+        });
+    }
+    
+    // Mantém o botão opcional, mas agora ele chama validaCep
+    const btnValidarCep = document.getElementById("btnValidarCep"); // ID alterado no HTML também
+    if(btnValidarCep) {
+        btnValidarCep.addEventListener("click", validaCep);
+    }
+});
+
+// Função para validar o CEP (apenas 8 dígitos)
+function validaCep() {
+    const cepInput = document.getElementById("cep");
+    const cep = cepInput.value.replace(/\D/g, ''); // Remove não dígitos
+    let isValid = true; // Assume que é válido inicialmente
+
+    if (cep.length !== 8) {
+        alert("CEP inválido. Deve conter exatamente 8 dígitos.");
+        cepInput.focus(); // Foca no campo CEP
+        isValid = false;
+    } else {
+        // Opcional: Poderia dar um feedback visual que o formato está correto
+        console.log("Formato do CEP (8 dígitos) é válido.");
+    }
+    return isValid; // Retorna true se válido, false caso contrário
 }
 
-function validaSenha() {
-    cadUsuario(senha, confirmarSenha);
-    do {
-        formCadastro.append('senha', document.getElementById('senhaCadastro').value);
-        formCadastro.append('confirmarSenha', document.getElementById('confirmarSenha').value);
-        if (senha === confirmarSenha) {
-            alert("Login efetuado com sucesso!")
-        } else {
-            alert("Senhas não conferem!");
+// Função para cadastrar o usuário
+function cadastrarUsuario(form) {
+    console.log("Iniciando cadastroUsuario...");
+    const senha = form.senha.value;
+    const confirmarSenha = form.confirmarSenha.value;
+
+    // --- Validações Client-Side Essenciais ---
+    if (senha.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres.");
+        form.senha.focus();
+        return; // Interrompe o envio
+    }
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem. Por favor, verifique.");
+        form.confirmarSenha.focus();
+        return; // Interrompe o envio
+    }
+    
+    // **Nova Validação**: Chama a função validaCep antes de prosseguir
+    if (!validaCep()) {
+        // A função validaCep já exibe o alerta e foca no campo
+        return; // Interrompe o envio se o CEP for inválido
+    }
+    
+    // Validar outros campos obrigatórios
+    let camposObrigatorios = form.querySelectorAll("[required]");
+    let algumVazio = false;
+    camposObrigatorios.forEach(campo => {
+        // Verifica se o campo está visível antes de validar (boa prática)
+        if (campo.offsetParent !== null && !campo.value.trim()) { 
+             console.warn(`Campo obrigatório vazio: ${campo.name}`);
+             algumVazio = true;
         }
-    } while (senha != confirmarSenha);
+    });
+
+    if (algumVazio) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        // Focar no primeiro campo vazio encontrado
+        for(let campo of camposObrigatorios) {
+             if (campo.offsetParent !== null && !campo.value.trim()) {
+                campo.focus();
+                break;
+            }
+        }
+        return;
+    }
+    // --- Fim Validações Client-Side ---
+
+    // Prepara os dados para envio
+    const formData = new FormData(form);
+    formData.append("acao", "cadastrar"); // Adiciona a ação esperada pelo PHP
+
+    console.log("Enviando dados para o backend...");
+    // Desabilitar botão de submit para evitar cliques duplos
+    const btnCadastrar = document.getElementById("btnCadastrar");
+    if(btnCadastrar) btnCadastrar.disabled = true;
+
+    // Envia para o PHP via Fetch API
+    fetch("../BDPhp/raizUrbanaBD.php", { // Caminho relativo corrigido
+        method: "POST",
+        body: formData,
+    })
+    .then(response => {
+        console.log("Resposta recebida do backend.");
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Dados JSON recebidos:", data);
+        if (data.sucesso) {
+            alert("Cadastro realizado com sucesso!");
+            form.reset();
+        } else {
+            alert(`Erro no cadastro: ${data.mensagem}`);
+        }
+    })
+    .catch(error => {
+        console.error("Erro durante o fetch:", error);
+        alert(`Ocorreu um erro ao processar o cadastro. Verifique sua conexão ou tente novamente mais tarde. Detalhe: ${error.message}`);
+    })
+    .finally(() => {
+        // Reabilitar botão de submit independentemente do resultado
+        if(btnCadastrar) btnCadastrar.disabled = false;
+    });
 }
 
-// Função para verificar se usuário está logado
-// function verificarSessao() {
-//     const formLogin = new FormLogin();
-//     formLogin.append('acao', 'verificar_sessao');
+// Função para limpar o formulário
+function cancelarCadastro(form) {
+    if (confirm("Tem certeza que deseja limpar o formulário?")) {
+        form.reset();
+        console.log("Formulário resetado.");
+    }
+}
 
-//     fetch('raizUrbanaBD.php', {
-//         method: 'POST',
-//         body: formLogin
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.logado) {
-//             mostrarDashboard(data.usuario);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Erro ao verificar sessão:', error);
-//     });
-// }
+// Função para verificar a sessão do usuário (exemplo)
+function verificarSessao() {
+    console.log("Verificando sessão...");
+    const formData = new FormData();
+    formData.append("acao", "verificar_sessao"); // Ação correta
+
+    fetch("../BDPhp/raizUrbanaBD.php", { // Caminho relativo corrigido
+        method: "POST",
+        body: formData,
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Resposta da verificação de sessão:", data);
+        if (data.logado) {
+            console.log("Usuário já está logado:", data.usuario);
+        } else {
+            console.log("Nenhum usuário logado na sessão.");
+        }
+    })
+    .catch(error => {
+        console.error("Erro ao verificar sessão:", error);
+    });
+}
