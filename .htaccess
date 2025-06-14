@@ -1,7 +1,7 @@
 Options +Indexes +FollowSymLinks +Includes
 DirectoryIndex index.html
 
-<FilesMatch "\.(html|htm)$">
-    AddHandler application/x-httpd-php .html .htm
+<FilesMatch "\.(html|htm|php)$">
+    AddHandler application/x-httpd-php .html .htm .php
     Require all granted
 </FilesMatch>

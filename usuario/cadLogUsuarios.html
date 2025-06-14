@@ -4,47 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ajustando caminhos CSS para serem relativos à localização do HTML -->
-    <link rel="stylesheet" href="../cssUsuarios/cadastroUsuarios.css"> <!-- Corrigido caminho relativo -->
-    <link rel="stylesheet" href="../cssUsuarios/loginUsuarios.css"> <!-- Corrigido caminho relativo -->
-    <title>Cadastro de Usuário - Raiz Urbana</title>
+    <link rel="stylesheet" href="../cssUsuarios/cadastroUsuarios.css">
+    <link rel="stylesheet" href="../cssUsuarios/loginUsuarios.css">
+    <title>Cadastro - Raiz Urbana</title>
 </head>
 
 <body>
-    <h1>Novo Usuário</h1>
-    <div>
-        <form id="cadUsuarioForm" method="POST" novalidate>
+    <div class="containerCadastro">
+        <h1>Novo Usuário</h1>
+        <form id="cadUsuarioForm" method="POST" action="../BDPhp/raizurbanabd.php" novalidate>
+            <input type="hidden" name="acao" value="cadastrar">
             <div>
-                <label class="lblNomeUsuario" for="nomeUsuario">Nome Completo: </label>
+                <label class="lblNomeUsuario" for="nomeUsuario">*Nome Completo: </label>
                 <input class="nomeUsuario" type="text" name="nomeUsuario" id="nomeUsuario" required
                     placeholder="Digite seu nome completo" autofocus>
             </div>
             <div>
-                <label class="lblEmail" for="email">E-mail: </label>
+                <label class="lblEmail" for="email">*E-mail: </label>
                 <input class="email" type="email" name="email" id="email" required placeholder="Seu e-mail">
             </div>
             <div>
-                <label class="lblSenha" for="senha">Senha: </label>
+                <label class="lblSenha" for="senha">*Senha: </label>
                 <input class="iptSenha" type="password" name="senha" id="senha" required
                     placeholder="Digite uma senha de 6 ou mais dígitos." minlength="6">
             </div>
             <div>
-                <label class="lblConfirmarSenha" for="confirmarSenha">Confirmar Senha: </label>
+                <label class="lblConfirmarSenha" for="confirmarSenha">*Confirmar Senha: </label>
                 <input class="iptConfirmarSenha" type="password" name="confirmarSenha" id="confirmarSenha" required
                     placeholder="Digite novamente sua senha para confirmação" minlength="6">
             </div>
             <div>
-                <label for="cpf">CPF: </label>
+                <label for="cpf">*CPF: </label>
                 <input type="text" name="cpf" id="cpf" required placeholder="000.000.000-00">
             </div>
             <div>
-                <label for="genero">Gênero: </label>
-                <select name="genero" id="genero" required>
+                <label for="genero">*Gênero: </label>
+                <select class="select" name="genero" id="genero" required>
                     <option value="" disabled selected>Selecione...</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
-                    <option value="Outro">Outro</option>
-                    <option value="Prefiro não informar">Prefiro não informar</option>
                 </select>
             </div>
             <div>
@@ -52,54 +50,71 @@
                 <input type="tel" name="telefone" id="telefone" placeholder="(00) 0000-0000">
             </div>
             <div>
-                <label for="celular">Celular: </label>
+                <label for="celular">*Celular: </label>
                 <input type="tel" name="celular" id="celular" required placeholder="(00) 90000-0000">
             </div>
             <div>
-                <label for="dataNasc">Data de Nascimento: </label>
+                <label for="dataNasc">*Data de Nascimento: </label>
                 <input type="date" name="dataNasc" id="dataNasc" required>
             </div>
             <div>
-                <label for="cep">CEP: </label>
-                <input type="text" name="cep" id="cep" required placeholder="00000000" maxlength="8"> <!-- Removido placeholder com traço, adicionado maxlength -->
-                <!-- Botão alterado para validar o formato do CEP, sem buscar endereço -->
-                <button type="button" id="btnValidarCep">Validar CEP</button> 
+                <label for="cep">*CEP: </label>
+                <input type="text" name="cep" id="cep" required placeholder="00000-000" maxlength="8">
             </div>
             <div>
-                <label for="rua">Logradouro: </label>
+                <label for="rua">*Logradouro: </label>
                 <input type="text" name="rua" id="rua" required>
             </div>
             <div>
-                <label for="numero">Nº: </label>
+                <label for="numero">*Nº: </label>
                 <input type="text" name="numero" id="numero" required>
             </div>
             <div>
-                <label for="bairro">Bairro: </label>
+                <label for="bairro">*Bairro: </label>
                 <input type="text" name="bairro" id="bairro" required>
             </div>
             <div>
-                <label for="cidade">Cidade: </label>
+                <label for="cidade">*Cidade: </label>
                 <input type="text" name="cidade" id="cidade" required>
             </div>
             <div>
-                <label for="uf">UF: </label>
+                <label for="uf">*UF: </label>
                 <input type="text" name="uf" id="uf" required maxlength="2">
             </div>
-            
-            <div>
+            <div class="form-buttons">
+                <button class="btnCancelar" type="button" id="btnCancelar">
+                    Cancelar
+                </button>
                 <button class="btnCadastrar" type="submit" id="btnCadastrar">
                     Cadastrar
                 </button>
             </div>
+        </form>
+    </div>
+    <div class="containerLogin">
+        <h2>Login</h2>
+        <form id="cadLoginForm" method="POST" action="../BDPhp/raizurbanabd.php">
+            <input type="hidden" name="acao" value="logar">
             <div>
-                <button class="btnCancelar" type="button" id="btnCancelar">
+                <label class="lblEmail" for="email">E-mail: </label>
+                <input class="email" type="email" name="email" id="emailLogin" required placeholder="Seu e-mail">
+            </div>
+            <div>
+                <label class="lblSenha" for="senha">Senha: </label>
+                <input class="iptSenha" type="password" name="senha" id="senhaLogin" required
+                    placeholder="Digite sua senha." minlength="6">
+            </div>
+            <div class="form-buttons">
+                <button class="btnLogar" type="submit" id="btnLogar">
+                    Logar
+                </button>
+                <button class="btnCancelarLogin" type="submit" id="btnCancelarLogin">
                     Cancelar
                 </button>
             </div>
+            <p>Não tem uma conta? <a href="../usuario/cadLogUsuarios.html">Cadastre-se</a></p>
         </form>
     </div>
-    <!-- Ajustado caminho do JS para ser relativo -->
-    <script src="../jsUsuarios/cadLogUsuarios.js" defer></script> <!-- Corrigido caminho relativo -->
 </body>
 
 </html>
