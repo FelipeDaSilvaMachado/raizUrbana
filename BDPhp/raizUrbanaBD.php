@@ -147,6 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // Resposta de sucesso
                 echo (json_encode(["sucesso" => true, "mensagem" => "Cadastro realizado com sucesso!"]));
+
+                require "../cadLogUsuarios.html";
             } catch (Exception $e) {
                 // Rollback em caso de erro na transaçao
                 $pdo->rollBack();
@@ -196,6 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "mensagem" => "Login realizado com sucesso!",
             "usuario" => $_SESSION["usuario"]
         ]));
+        require "../index.html";
         exit;
     } else {
         // Açao invalida para POST
