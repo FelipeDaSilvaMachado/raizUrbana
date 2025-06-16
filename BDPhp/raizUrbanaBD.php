@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // Resposta de sucesso
                 echo (json_encode(["sucesso" => true, "mensagem" => "Cadastro realizado com sucesso!"]));
 
-                require "../cadLogUsuarios.html";
+                header("Location: ../usuario/cadLogUsuarios.html");
             } catch (Exception $e) {
                 // Rollback em caso de erro na transaçao
                 $pdo->rollBack();
@@ -171,6 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo (json_encode(["sucesso" => false, "mensagem" => "Email e senha sao obrigatorios."]));
             exit;
         }
+        header("Location: ../usuario/cadLogUsuarios.html");
 
         $stmtLogin = $pdo->prepare("SELECT nomeUsuario, email, senha FROM cadusuarios WHERE email = :email");
         $stmtLogin->bindParam(":email", $email, PDO::PARAM_STR);
@@ -180,6 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo (json_encode(["sucesso" => false, "mensagem" => "Email ou senha incorretos."]));
             exit;
         }
+        header("Location: ../usuario/cadLogUsuarios.html");
 
         $usuario = $stmtLogin->fetch(PDO::FETCH_ASSOC);
 
@@ -187,25 +189,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo (json_encode(["sucesso" => false, "mensagem" => "Email ou senha incorretos."]));
             exit;
         }
+        header("Location: ../usuario/cadLogUsuarios.html");
 
         $_SESSION["usuario"] = [
             "nome" => $usuario["nomeUsuario"],
             "email" => $usuario["email"]
         ];
 
-        echo (json_encode([
+        echo ([
             "sucesso" => true,
             "mensagem" => "Login realizado com sucesso!",
             "usuario" => $_SESSION["usuario"]
-        ]));
-        require "../index.html";
+        ]);
+        header("Location: ../index.html");
         exit;
     } else {
         // Açao invalida para POST
         echo (json_encode(["sucesso" => false, "mensagem" => "Açao POST invalida."]));
         exit;
     }
+    header("Location: ../usuario/cadLogUsuarios.html");
 } else {
     echo (json_encode(["sucesso" => false, "mensagem" => "Metodo nao permitido. Use POST para cadastro ou login e GET para verificaçao de sessao."]));
     exit;
 }
+header("Location: ../usuario/cadLogUsuarios.html");
+?>
