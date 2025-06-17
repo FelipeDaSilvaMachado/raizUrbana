@@ -1,16 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cssHome/index.css">
-    <title>Raiz Urbana.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fontes: Lobster para títulos e logo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../cssHome/index.css" />
+  <title>Raiz Urbana</title>
 </head>
-
 <body>
-    <h1>Bem Vindo a Loja Raiz Urbana</h1>
-    <a href="usuario/cadLogUsuarios.html">Acessar Cadastro / Login</a>
-</body>
 
+  <header>
+    <div class="top-bar">
+      <!-- Logo centralizada -->
+      <div class="logo">
+        <span class="logo-text">RAIZ</span>
+        <img src="img/logo.png" alt="Logo" class="logo-img" />
+        <span class="logo-text">URBANA</span>
+      </div>
+
+      <!-- Ícones sociais no canto direito -->
+      <div class="social-icons">
+        <img src="img/linkedin.png" alt="LinkedIn" />
+        <img src="img/facebook.png" alt="Facebook" />
+        <img src="img/X.png" alt="X" />
+        <img src="img/instagram.png" alt="Instagram" />
+      </div>
+    </div>
+
+    <!-- Navegação central com carrinho na borda direita -->
+    <nav>
+      <div class="nav-container">
+        <ul class="menu">
+          <li><a href="#">HOME</a></li>
+          <li class="dropdown">
+            <a href="#">VESTUÁRIO</a>
+            <ul class="submenu">
+              <li><a href="../usuario/modaMasculina.html">MODA MASCULINA</a></li>
+              <li><a href="../usuario/modaFeminina.html">MODA FEMININA</a></li>
+            </ul>
+          </li>
+          <li><a href="#">SOBRE NÓS</a></li>
+          <li><a href="../usuario/cadLogUsuarios.html">CADASTRO/LOGIN</a></li>
+        </ul>
+
+        <div class="carrinho">
+          <a href="#"><img src="img/icon-carrinho.png" alt="Carrinho" /></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="banner">
+    <img src="img/banner.png" alt="Promoção" />
+  </section>
+
+  <!-- Produtos -->
+  <section class="produtos">
+    <h2>NOSSOS PRODUTOS</h2>
+    <div class="produtos-container">
+      <img src="img/produto1.png" alt="Produto 1" />
+      <img src="img/produto2.png" alt="Produto 2" />
+      <img src="img/produto3.png" alt="Produto 3" />
+      <img src="img/produto4.png" alt="Produto 4" />
+      <img src="img/produto5.png" alt="Produto 5" />
+      <img src="img/produto6.png" alt="Produto 6" />
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="footer-section">
+      <h3>SOBRE</h3>
+      <p>QUEM SOMOS</p>
+      <p>ONDE ENCONTRAR</p>
+    </div>
+    <div class="footer-section">
+      <h3>MEUS DADOS</h3>
+      <p>MINHA CONTA</p>
+      <p>MEUS PEDIDOS</p>
+    </div>
+    <div class="footer-section">
+      <h3>FALE CONOSCO</h3>
+      <p>SAC: WHATSAPP: (11)9999-9999</p>
+      <p>HORÁRIOS DE ATENDIMENTO<br />SEG A SEX, DAS 09 ÀS 18H</p>
+    </div>
+    <div class="whatsapp">
+      <img src="img/whatsapp.png" alt="WhatsApp" />
+    </div>
+  </footer>
+
+</body>
 </html>

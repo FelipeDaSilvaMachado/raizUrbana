@@ -1,5 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+
 * {
- margin: 0px;
- padding: 0px;
- box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Holtwood One SC', serif;
+  background-color: #eeeeff;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  gap: 10px;
+}
+
+.logo-text {
+  font-family: 'Holtwood One SC', serif;
+  color: #000;
+  font-size: 28px;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+}
+
+.social-icons {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* SOCIAL ICONS */
+.social-icons img {
+  width: 24px;
+  height: 24px; 
+  cursor: pointer;
+}
+
+
+/* Carrinho alinhado à direita da barra de navegação */
+.carrinho {     
+  display: flex;
+  float: inline-end;
+  align-items: center;
+  padding-right: 20px;    /* espaço do lado direito */
+}
+
+
+.carrinho img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carrinho img:hover {
+  transform: scale(1.1);
+}
+
+/* NAV */
+nav {
+  background: #111;
+  padding: 10px 0;
+}
+
+.nav-container {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;    
+  position: relative;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Holtwood One SC', serif;
+  color: #33cc00;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover .submenu,
+.dropdown .submenu:hover {
+  display: block;
+}
+
+.dropdown .submenu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  background: #222;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 5px;
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.submenu li a {
+  color: #33cc00;
+  padding: 10px 20px;
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background-color: #333;
+}
+
+/* Carrinho */
+.carrinho {
+  position: absolute;
+  right: 20px;
+}
+
+.carrinho img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carrinho img:hover {
+  transform: scale(1.1);
+}
+
+/* BANNER */
+.banner img {
+ width: 100%;
+ height: 100%;
+ margin-bottom: -8px;   
+}
+
+/* PRODUTOS */
+.produtos {
+  background-color: #ffd900;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.produtos h2 {
+  font-family: 'Holtwood One SC', serif;
+  color: purple;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.produtos-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.produtos-container img {
+  width: 160px;
+  background: white;
+  padding: 10px;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.produtos-container img:hover {
+  transform: scale(1.05);
+}
+
+/* RODAPÉ AJUSTADO */
+footer {
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 60px 20px;
+  font-size: 13px;
+  text-align: left;
+  position: relative;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-family: 'Holtwood One SC', serif;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: whitesmoke;
+}
+
+.footer-section p {
+  margin: 6px 0;
+  font-weight: normal;
+}
+
+.whatsapp img {
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+footer::after {
+  content: "© TODOS OS DIREITOS RESERVADOS RAIZ URBANA";
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #999;
 }
