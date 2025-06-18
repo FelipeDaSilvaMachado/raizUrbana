@@ -13,25 +13,40 @@
 <body>
     <div class="header">
         <div class="cabeçalho">
-            <h1>RAIZ</h1>
-            <img src="../img/logo.png" class="logo">
-            <h1>URBANA</h1>
+          <h1>RAIZ</h1>
+          <img src="../img/logo.png" class="logo" />
+          <h1>URBANA</h1>
         </div>
-            <nav class="navegação">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li>
-                        <a href="#">VESTUARIO</a>
-                        <ul class="dropdown">
-                            <li><a href="../usuario/modaFeminina.html">FEMININA</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/sobre/index.html">SOBRE NÓS</a></li>
-                    <li><a href="#">LOGIN</a></li>
-                    <li><a href="#" id="carrinho"><i class="ri-shopping-cart-fill"></i></a></li>
-
-                </ul>
-            </nav>
+      
+        <div class="social-icons">
+          <img src="/img/linkedin.png" alt="LinkedIn" />
+          <img src="/img/facebook.png" alt="Facebook" />
+          <img src="/img/X.png" alt="X" />
+          <img src="/img/instagram.png" alt="Instagram" />
+        </div>
+    </div>
+      
+      <!-- A NAVBAR DEVE ESTAR FORA DA DIV .header -->
+    <nav class="navegação">
+        <div class="menu-centro">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li>
+              <a href="#">VESTUÁRIO</a>
+              <ul class="dropdown">
+                <li><a href="../usuario/modaFeminina.html">FEMININO</a></li>
+              </ul>
+            </li>
+            <li><a href="/sobre/index.html">SOBRE NÓS</a></li>
+            <li><a href="#">LOGIN</a></li>
+          </ul>
+        </div>
+      
+        <div class="carrinho">
+          <a href="#"><img src="../img/icon-carrinho.png" alt="Carrinho" /></a>
+        </div>
+    </nav>
+          
     </div>
     <h1 class="titulo">MODA MASCULINA</h1>
     <main >
@@ -275,23 +290,11 @@
                 <h1>SOBRE</h1>
                 <a href="#" class="link-sobre">quem somos</a><br>
                 <h5 class="footer-contato">onde nos encontrar</h5>
-                <div class="social_media">
-                    <a href="#" class="footer-link" id="instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-        
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
 
-                    <a href="#" class="footer-link" id="whatsapp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
             </div>
             <ul class="footer-list">
                 <li>
-                    <h3>meus dados</h3>
+                    <h1>meus dados</h1>
                 </li>
                 <li>
                     <a href="#" class="footer-link">minha conta</a>
@@ -302,7 +305,7 @@
             </ul>
             <ul class="footer-list">
                 <li>
-                    <h3>fale conosco</h3>
+                    <h1>fale conosco</h1>
                 </li>
                 <li>
                     <h5 class="footer-contato">SAC: WHATSAPP: (11)99999-9999</h5>
@@ -312,6 +315,9 @@
                     <h5 class="footer-contato">SEG A SEX. DAS 09 ÁS 18H</h5>
                 </li>
             </ul>
+            <div class="whatsapp">
+                <img src="/img/whatsapp.png" alt="WhatsApp" />
+              </div>
         </div>
         <div id="footer_copyright">
             &#169
