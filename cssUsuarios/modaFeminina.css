@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 
 body {
     background-color: #EBEBF4;
-    font-family: 'Holtwood One SC',sans-serif;
+    font-family: 'Holtwood One SC', sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -29,7 +29,7 @@ img {
     z-index: 1000;
 }
 
-.logo{
+.logo {
     display: flex;
     margin-bottom: 8px;
 }
@@ -41,8 +41,8 @@ img {
     justify-content: center;
 }
 
-.cabeçalho h1{
-    font-size:35px;
+.cabeçalho h1 {
+    font-size: 35px;
 }
 
 .cabeçalho img {
@@ -81,6 +81,7 @@ img {
     justify-content: center; /* centraliza o conteúdo principal */
     position: fixed;
     z-index: 100;
+
     margin-top: 55px;
   }
   
@@ -107,6 +108,7 @@ img {
   .menu-centro ul li a {
     text-decoration: none;
     color: #47a603;
+
   }
   
   .navegação a:hover {
@@ -121,7 +123,9 @@ img {
     background-color: black;
     min-width: 160px;
     z-index: 9999;
+
     padding: 0 0 5px 0;
+
     border-radius: 10px;
   }
   
@@ -134,6 +138,7 @@ img {
     padding: 10px 8px;
     display: block;
     color: #47a603;
+
   }
   
   .navegação ul li .dropdown li a:hover {
@@ -154,6 +159,7 @@ img {
     transition: transform 0.3s ease;
   }
   
+
 .titulo {
     color: #6a1c91;
     display: flex;
@@ -167,6 +173,7 @@ main {
     flex: 1;
     padding-top: 130px;
 }
+
 
 article{
     border-radius: 5px;
@@ -184,9 +191,9 @@ h3 {
 
 .card_container {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-content: center;
-    gap:2.3rem;
+    gap: 2.3rem;
     position: relative;
 }
 
@@ -203,7 +210,7 @@ h3 {
 
 
 .card_article #img2 {
-    margin-top:65px;
+    margin-top: 65px;
 }
 
 .card_article #img3 {
@@ -272,20 +279,20 @@ h3 {
     transition: transform .4s, opacity .4s;
 }
 
-.card_button i{
+.card_button i {
     font-size: 1.25rem;
     transition: transform .4s;
 }
 
-.card_button:hover i{
+.card_button:hover i {
     transform: translateX(.5rem);
 }
 
-.card_article:hover .card_img{
+.card_article:hover .card_img {
     transform: translateY(-1.5rem);
 }
 
-.card_article:hover .card_data{
+.card_article:hover .card_data {
     transform: translateY(-4.5rem);
     opacity: 0;
 }
@@ -294,11 +301,11 @@ h3 {
     background-color: transparent;
 }
 
-.card_article:hover .card_bg{
+.card_article:hover .card_bg {
     transform: scale(1);
 }
 
-.card_article:hover .card_button{
+.card_article:hover .card_button {
     transform: translateY(-3.75rem);
     opacity: 1;
     pointer-events: initial;
@@ -325,7 +332,7 @@ footer {
     margin-bottom: 0.75rem;
 }
 
-.social_media{
+.social_media {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -333,7 +340,7 @@ footer {
     margin-top: 1.5rem;
 }
 
-.social_media .footer-link{
+.social_media .footer-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -344,12 +351,10 @@ footer {
     transition: all 0.4s;
 }
 
-
 .link-sobre{
     color: white;
 }
-
-.link-sobre:hover{
+.link-sobre:hover {
     color: #6a1c91;
     transition: all 0.3s;
 }
@@ -373,8 +378,10 @@ footer {
 }
 
 .footer-contato {
+
     color: white;
     margin:5px;
+
     margin-bottom: -5px;
 }
 
@@ -402,6 +409,7 @@ footer {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 
 body {
     background-color: #EBEBF4;
-    font-family: 'Holtwood One SC',sans-serif;
+    font-family: 'Holtwood One SC', sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -29,7 +29,7 @@ img {
     z-index: 1000;
 }
 
-.logo{
+.logo {
     display: flex;
     margin-bottom: 8px;
 }
@@ -41,8 +41,8 @@ img {
     justify-content: center;
 }
 
-.cabeçalho h1{
-    font-size:35px;
+.cabeçalho h1 {
+    font-size: 35px;
 }
 
 .cabeçalho img {
@@ -57,19 +57,19 @@ img {
     transform: translateY(-50%);
     display: flex;
     gap: 10px;
-  }
+}
 
-  .social-icons img {
+.social-icons img {
     width: 24px;
     cursor: pointer;
-  }
-  
-  /* SOCIAL ICONS */
-  .social-icons img {
+}
+
+/* SOCIAL ICONS */
+.social-icons img {
     width: 24px;
-    height: 24px; 
+    height: 24px;
     cursor: pointer;
-  }
+}
 
 .navegação {
     background-color: black;
@@ -78,42 +78,43 @@ img {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: center; /* centraliza o conteúdo principal */
+    justify-content: center;
+    /* centraliza o conteúdo principal */
     position: fixed;
     z-index: 100;
     margin-top: 55px;
-  }
-  
-  .menu-centro {
+}
+
+.menu-centro {
     display: flex;
     justify-content: center;
     flex: 1;
-  }
-  
-  .menu-centro ul {
+}
+
+.menu-centro ul {
     display: flex;
     list-style: none;
     gap: 100px;
     margin: 0;
     padding: 0;
-  }
-  
-  .menu-centro ul li {
+}
+
+.menu-centro ul li {
     font-size: 18px;
     position: relative;
     transition: 0.2s ease;
-  }
-  
-  .menu-centro ul li a {
+}
+
+.menu-centro ul li a {
     text-decoration: none;
     color: #47a603;
-  }
-  
-  .navegação a:hover {
+}
+
+.navegação a:hover {
     color: #6a1c91;
-  }
-  
-  .navegação ul li .dropdown {
+}
+
+.navegação ul li .dropdown {
     display: none;
     position: absolute;
     top: 100%;
@@ -217,7 +218,6 @@ footer {
     padding-top: 7px;
     list-style: none;
 }
-
 
 .footer-list .footer-link {
     color: white;
