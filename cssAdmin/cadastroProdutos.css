@@ -1,0 +1,126 @@
+ * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f1f1f9;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #f1f1f9;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-container {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .logo-container img {
+    height: 150px;             
+    width: auto;               
+    border-radius: 8px;
+    }
+
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .title-box {
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        width: 90%;
+        max-width: 1100px;
+    }
+
+    .title-box h1 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+    form {
+        background-color: #eeeeff;
+        border-radius: 10px;
+        padding: 40px;
+        width: 100%;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    select {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #fff;
+    }
+
+    .button-row {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    button {
+        padding: 14px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        min-width: 180px;
+    }
+
+    .btn-cadastrar {
+        background-color: #4CAF50;
+    }
+
+    .btn-excluir {
+        background-color: #c62828;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
