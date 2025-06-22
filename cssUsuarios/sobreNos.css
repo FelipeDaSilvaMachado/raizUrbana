@@ -1,0 +1,265 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: #EBEBF4;
+    font-family: 'Holtwood One SC',sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.header {
+    position: fixed;
+    overflow: visible;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo{
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.cabeçalho {
+    background-color: #EBEBF4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabeçalho h1{
+    font-size:35px;
+}
+
+.cabeçalho img {
+    height: 50px;
+    width: 50px;
+}
+
+.social-icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    cursor: pointer;
+  }
+  
+  /* SOCIAL ICONS */
+  .social-icons img {
+    width: 24px;
+    height: 24px; 
+    cursor: pointer;
+  }
+
+.navegação {
+    background-color: black;
+    width: 100%;
+    height: 65px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centraliza o conteúdo principal */
+    position: fixed;
+    z-index: 100;
+    margin-top: 55px;
+  }
+  
+  .menu-centro {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .menu-centro ul {
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-centro ul li {
+    font-size: 18px;
+    position: relative;
+    transition: 0.2s ease;
+  }
+  
+  .menu-centro ul li a {
+    text-decoration: none;
+    color: #47a603;
+  }
+  
+  .navegação a:hover {
+    color: #6a1c91;
+  }
+  
+  .navegação ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    min-width: 160px;
+    z-index: 9999;
+    padding: 0 0 5px 0;
+    border-radius: 10px;
+  }
+  
+  .navegação ul li:hover .dropdown {
+    display: block;
+    animation: dropdownSlide 0.2s ease forwards;
+  }
+  
+  .navegação ul li .dropdown li a {
+    padding: 10px 8px;
+    display: block;
+    color: #47a603;
+  }
+  
+  .navegação ul li .dropdown li a:hover {
+    color: #6a1c91;
+  }
+  
+  .carrinho {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carrinho img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+.titulo {
+    color: #6a1c91;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: -13px;
+}
+
+main {
+    flex: 1;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.texto {
+    padding-top: 80px;
+    margin: 40px;
+
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    color: #EBEBF4;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.conteudo_rodape {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem, 3.5rem;
+}
+
+.footer-sobre {
+    margin-bottom: 0.75rem;
+}
+
+.link-sobre{
+    color: white;
+}
+
+.link-sobre:hover{
+    color: #6a1c91;
+    transition: all 0.3s;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 7px;
+    list-style: none;
+}
+
+
+.footer-list .footer-link {
+    color: white;
+    transition: all 0.3s;
+}
+
+.footer-list .footer-link:hover {
+    color: #6a1c91;
+}
+
+.footer-contato {
+    color: whtie;
+    margin:5px;
+    margin-bottom: -5px;
+}
+
+#footer_copyright {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: #EBEBF4;
+    font-size: 0.9rem;
+    padding: 1.5rem;
+    font-weight: 100;
+}
+
+.whatsapp {
+    width: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+/* Animação do dropdown descendo */
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
