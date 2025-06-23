@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,48 +11,46 @@
   <link rel="stylesheet" href="../cssHome/index.css" />
   <title>Raiz Urbana</title>
 </head>
+
 <body>
-
-  <header>
-    <div class="top-bar">
-      <!-- Logo centralizada -->
-      <div class="logo">
-        <span class="logo-text">RAIZ</span>
-        <img src="img/logo.png" alt="Logo" class="logo-img" />
-        <span class="logo-text">URBANA</span>
-      </div>
-
-      <!-- Ícones sociais no canto direito -->
-      <div class="social-icons">
-        <img src="../img/linkedin.png" alt="LinkedIn" />
-        <img src="../img/facebook.png" alt="Facebook" />
-        <img src="../img/X.png" alt="X" />
-        <img src="../img/instagram.png" alt="Instagram" />
-      </div>
+  <!-- Header -->
+  <div class="header">
+    <div class="cabeçalho">
+      <h1>RAIZ</h1>
+      <img src="img/logo.png" alt="Logo" class="logo" />
+      <h1>URBANA</h1>
     </div>
 
-    <!-- Navegação central com carrinho na borda direita -->
-    <nav>
-      <div class="nav-container">
-        <ul class="menu">
-          <li><a href="index.html">HOME</a></li>
-          <li class="dropdown">
-            <a href="#">VESTUÁRIO</a>
-            <ul class="submenu">
-              <li><a href="../usuario/modaMasculina.html">MODA MASCULINA</a></li>
-              <li><a href="../usuario/modaFeminina.html">MODA FEMININA</a></li>
-            </ul>
-          </li>
-          <li><a href="../usuario/sobreNosQuemSomos.html">SOBRE NÓS</a></li>
-          <li><a href="../usuario/cadLogUsuarios.html">CADASTRO/LOGIN</a></li>
-        </ul>
+    <!-- Ícones sociais no canto direito -->
+    <div class="social-icons">
+      <img src="../img/linkedin.png" alt="LinkedIn" />
+      <img src="../img/facebook.png" alt="Facebook" />
+      <img src="../img/X.png" alt="X" />
+      <img src="../img/instagram.png" alt="Instagram" />
+    </div>
+  </div>
 
-        <div class="carrinho">
-          <a href="#"><img src="../img/icon-carrinho.png" alt="Carrinho" /></a>
-        </div>
+  <!-- Navegação central com carrinho na borda direita -->
+  <nav class="navegação">
+    <div class="menu-centro">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li>
+          <a href="#">VESTUÁRIO</a>
+          <ul class="dropdown">
+            <li><a href="../usuario/modaFeminina.html">MODA FEMININA</a></li>
+            <li><a href="../usuario/modaMasculina.html">MODA MASCULINA</a></li>
+          </ul>
+        </li>
+        <li><a href="../usuario/sobreNosQuemSomos.html">SOBRE NÓS</a></li>
+        <li><a href="../usuario/cadLogUsuarios.html">CADASTRO/LOGIN</a></li>
+      </ul>
+
+      <div class="carrinho">
+        <a href="#"><img src="../img/icon-carrinho.png" alt="Carrinho" /></a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <!-- Banner -->
   <section class="banner">
@@ -73,25 +72,45 @@
 
   <!-- Rodapé -->
   <footer>
-    <div class="footer-section">
-      <h3>SOBRE</h3>
-      <p>QUEM SOMOS</p>
-      <p>ONDE ENCONTRAR</p>
+    <div class="conteudo_rodape">
+      <div class="footer_sobre">
+        <h1>SOBRE</h1>
+        <a href="../usuario/sobreNosQuemSomos.html" class="link-sobre">quem somos</a>
+        <h5 class="footer-contato">onde nos encontrar</h5>
+      </div>
+      <ul class="footer-list">
+        <li>
+          <h1>meus dados</h1>
+        </li>
+        <li>
+          <a href="#" class="footer-link">minha conta</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">meus pedidos</a>
+        </li>
+      </ul>
+      <ul class="footer-list">
+        <li>
+          <h1>fale conosco</h1>
+        </li>
+        <li>
+          <h5 class="footer-contato">SAC: WHATSAPP: (11)99999-9999</h5>
+        </li>
+        <li>
+          <h5 class="footer-contato">HORARIOS DE ATENDIMENTO</h5>
+          <h5 class="footer-contato">SEG A SEX. DAS 09 ÁS 18H</h5>
+        </li>
+      </ul>
+      <div class="whatsapp">
+        <img src="../img/whatsapp.png" alt="WhatsApp" />
+      </div>
     </div>
-    <div class="footer-section">
-      <h3>MEUS DADOS</h3>
-      <p>MINHA CONTA</p>
-      <p>MEUS PEDIDOS</p>
-    </div>
-    <div class="footer-section">
-      <h3>FALE CONOSCO</h3>
-      <p>SAC: WHATSAPP: (11)9999-9999</p>
-      <p>HORÁRIOS DE ATENDIMENTO<br />SEG A SEX, DAS 09 ÀS 18H</p>
-    </div>
-    <div class="whatsapp">
-      <img src="../img/whatsapp.png" alt="WhatsApp" />
+    <div id="footer_copyright">
+      &#169
+      todos os direitos reservados a raiz urbana
     </div>
   </footer>
 
 </body>
+
 </html>

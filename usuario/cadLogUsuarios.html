@@ -4,117 +4,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../cssUsuarios/cadastroUsuarios.css">
-    <link rel="stylesheet" href="../cssUsuarios/loginUsuarios.css">
-    <title>Cadastro - Raiz Urbana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../cssUsuarios/login.css">
+    <title>Raiz Urbana - Cadastro/Login</title>
 </head>
 
 <body>
-    <div class="containerCadastro">
-        <h1>Novo Usuário</h1>
-        <form id="cadUsuarioForm" method="POST" action="../BDPhp/raizurbanabd.php" novalidate>
-            <input type="hidden" name="acao" value="cadastrar">
-            <div>
-                <label class="lblNomeUsuario" for="nomeUsuario">*Nome Completo: </label>
-                <input class="nomeUsuario" type="text" name="nomeUsuario" id="nomeUsuario" required
-                    placeholder="Digite seu nome completo" autofocus>
-            </div>
-            <div>
-                <label class="lblEmail" for="email">*E-mail: </label>
-                <input class="email" type="email" name="email" id="email" required placeholder="Seu e-mail">
-            </div>
-            <div>
-                <label class="lblSenha" for="senha">*Senha: </label>
-                <input class="iptSenha" type="password" name="senha" id="senha" required
-                    placeholder="Digite uma senha de 6 ou mais dígitos." minlength="6">
-            </div>
-            <div>
-                <label class="lblConfirmarSenha" for="confirmarSenha">*Confirmar Senha: </label>
-                <input class="iptConfirmarSenha" type="password" name="confirmarSenha" id="confirmarSenha" required
-                    placeholder="Digite novamente sua senha para confirmação" minlength="6">
-            </div>
-            <div>
-                <label for="cpf">*CPF: </label>
-                <input type="text" name="cpf" id="cpf" required placeholder="000.000.000-00">
-            </div>
-            <div>
-                <label for="genero">*Gênero: </label>
-                <select class="select" name="genero" id="genero" required>
-                    <option value="" disabled selected>Selecione...</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
-            </div>
-            <div>
-                <label for="telefone">Telefone Fixo: </label>
-                <input type="tel" name="telefone" id="telefone" placeholder="(00) 0000-0000">
-            </div>
-            <div>
-                <label for="celular">*Celular: </label>
-                <input type="tel" name="celular" id="celular" required placeholder="(00) 90000-0000">
-            </div>
-            <div>
-                <label for="dataNasc">*Data de Nascimento: </label>
-                <input type="date" name="dataNasc" id="dataNasc" required>
-            </div>
-            <div>
-                <label for="cep">*CEP: </label>
-                <input type="text" name="cep" id="cep" required placeholder="00000-000" maxlength="8">
-            </div>
-            <div>
-                <label for="rua">*Logradouro: </label>
-                <input type="text" name="rua" id="rua" required>
-            </div>
-            <div>
-                <label for="numero">*Nº: </label>
-                <input type="text" name="numero" id="numero" required>
-            </div>
-            <div>
-                <label for="bairro">*Bairro: </label>
-                <input type="text" name="bairro" id="bairro" required>
-            </div>
-            <div>
-                <label for="cidade">*Cidade: </label>
-                <input type="text" name="cidade" id="cidade" required>
-            </div>
-            <div>
-                <label for="uf">*UF: </label>
-                <input type="text" name="uf" id="uf" required maxlength="2">
-            </div>
-            <div class="form-buttons">
-                <button class="btnCadastrar" type="submit" id="btnCadastrar">
-                    Cadastrar
-                </button>
-                <button class="btnCancelar" type="acao" id="btnCancelar" name="cancelarCadastro">
-                    Cancelar
-                </button>
-            </div>
-        </form>
+    <!-- Mesmo header da versão anterior -->
+    <div class="header">
+        <div class="cabeçalho">
+            <h1>RAIZ</h1>
+            <img src="../img/logo.png" class="logo" />
+            <h1>URBANA</h1>
+        </div>
+
+        <div class="social-icons">
+            <img src="../img/linkedin.png" alt="LinkedIn" />
+            <img src="../img/facebook.png" alt="Facebook" />
+            <img src="../img/X.png" alt="X" />
+            <img src="../img/instagram.png" alt="Instagram" />
+        </div>
     </div>
-    <div class="containerLogin">
-        <h2>Login</h2>
-        <form id="cadLoginForm" method="POST" action="../BDPhp/raizurbanabd.php">
-            <input type="hidden" name="acao" value="logar">
-            <div>
-                <label class="lblEmail" for="email">E-mail: </label>
-                <input class="email" type="email" name="email" id="emailLogin" required placeholder="Seu e-mail">
-            </div>
-            <div>
-                <label class="lblSenha" for="senha">Senha: </label>
-                <input class="iptSenha" type="password" name="senha" id="senhaLogin" required
-                    placeholder="Digite sua senha." minlength="6">
-            </div>
-            <div class="form-buttons">
-                <button class="btnLogar" type="submit" id="btnLogar">
-                    Logar
-                </button>
-                <button class="btnCancelarLogin" type="acao" id="btnCancelarLogin" name="cancelarLogin">
-                    Cancelar
-                </button>
-            </div>
-            <p>Não tem uma conta? <a href="../usuario/cadLogUsuarios.html">Cadastre-se</a></p>
-        </form>
+
+
+    <nav class="navegação">
+        <div class="menu-centro">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li>
+                    <a href="#">VESTUÁRIO</a>
+                    <ul class="dropdown">
+                        <li><a href="../usuario/modaFeminina.html">FEMININO</a></li>
+                        <li><a href="../usuario/modaMasculina.html">MASCULINO</a></li>
+                    </ul>
+                </li>
+                <li><a href="../usuario/sobreNosQuemSomos.html">SOBRE NÓS</a></li>
+                <li><a href="../usuario/cadLogUsuarios.html">CADASTRO/LOGIN</a></li>
+            </ul>
+        </div>
+
+        <div class="carrinho">
+            <a href="#"><img src="../img/icon-carrinho.png" alt="Carrinho" /></a>
+        </div>
+    </nav>
+
     </div>
+
+    <main>
+        <div class="container">
+            <div class="auth-container">
+
+                <!-- TABS -->
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('logar')">Entrar</button>
+                    <button class="tab-button" onclick="showTab('cadastrar')">Cadastrar</button>
+                </div>
+
+                <!-- LOGIN TAB -->
+                <div class="tab-content active" id="logarTab">
+                    <div class="welcome-section">
+                        <h2>Bem-vindo de volta!</h2>
+                        <p>Entre na sua conta para continuar</p>
+                    </div>
+
+                    <form id="loginForm" method="POST" action="../BDPhp/raizurbanabd.php">
+                        <input type="hidden" name="acao" value="logar" />
+                        <div class="form-group">
+                            <label for="emailLogin">E-mail</label>
+                            <input type="email" name="email" id="emailLogin" placeholder="seu@email.com" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senhaLogin">Senha</label>
+                            <input type="password" name="senha" id="senhaLogin" placeholder="••••••" required />
+                        </div>
+                        <button class="btn btn-primary" type="submit">Entrar na Conta</button>
+                        <p>Não tem uma conta? <button class="tab-button"
+                                onclick="showTab('cadastrar')">Cadastre-se</button></p>
+                    </form>
+                </div>
+
+                <!-- REGISTER TAB -->
+                <div class="tab-content" id="cadastrarTab">
+                    <div class="welcome-section">
+                        <h2>Criar nova conta</h2>
+                        <p>Junte-se à nossa comunidade</p>
+                    </div>
+
+                    <form id="registerForm" method="POST" action="../BDPhp/raizurbanabd.php">
+                        <input type="hidden" name="acao" value="cadastrar" />
+
+                        <div class="form-grid">
+                            <div class="form-group span-2">
+                                <label for="nomeUsuario">Nome Completo *</label>
+                                <input type="text" name="nomeUsuario" id="nomeUsuario" required />
+                            </div>
+
+                            <div class="form-group span-2">
+                                <label for="email">E-mail *</label>
+                                <input type="email" name="email" id="email" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senha">Senha *</label>
+                                <input type="password" name="senha" id="senha" minlength="6" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmarSenha">Confirmar Senha *</label>
+                                <input type="password" name="confirmarSenha" id="confirmarSenha" minlength="6"
+                                    required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cpf">CPF *</label>
+                                <input type="text" name="cpf" id="cpf" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="genero">Gênero *</label>
+                                <select name="genero" id="genero" required>
+                                    <option disabled selected>Selecione...</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone Fixo: </label>
+                                <input type="tel" name="telefone" id="telefone" placeholder="(00) 0000-0000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="celular">Celular *</label>
+                                <input type="tel" name="celular" id="celular" placeholder="(00) 00000-0000" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dataNasc">Data de Nascimento *</label>
+                                <input type="date" name="dataNasc" id="dataNasc" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cep">CEP *</label>
+                                <input type="text" name="cep" id="cep" maxlength="9" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rua">Logradouro *</label>
+                                <input type="text" name="rua" id="rua" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="numero">Número *</label>
+                                <input type="text" name="numero" id="numero" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bairro">Bairro *</label>
+                                <input type="text" name="bairro" id="bairro" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cidade">Cidade *</label>
+                                <input type="text" name="cidade" id="cidade" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="uf">UF *</label>
+                                <input type="text" name="uf" id="uf" maxlength="2" required />
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Criar Conta</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Rdoapé -->
+    <footer>
+        <div class="conteudo_rodape">
+            <div class="footer_sobre">
+                <h1>SOBRE</h1>
+                <a href="#" class="link-sobre">quem somos</a><br>
+                <h5 class="footer-contato">onde nos encontrar</h5>
+
+            </div>
+            <ul class="footer-list">
+                <li>
+                    <h1>meus dados</h1>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">minha conta</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">meus pedidos</a>
+                </li>
+            </ul>
+            <ul class="footer-list">
+                <li>
+                    <h1>fale conosco</h1>
+                </li>
+                <li>
+                    <h5 class="footer-contato">SAC: WHATSAPP: (11)99999-9999</h5>
+                </li>
+                <li>
+                    <h5 class="footer-contato">HORARIOS DE ATENDIMENTO</h5>
+                    <h5 class="footer-contato">SEG A SEX. DAS 09 ÁS 18H</h5>
+                </li>
+            </ul>
+            <div class="whatsapp">
+                <img src="../img/whatsapp.png" alt="WhatsApp" />
+            </div>
+        </div>
+        <div id="footer_copyright">
+            &#169
+            todos os direitos reservados a raiz urbana
+        </div>
+    </footer>
+
+    <script src="../jsFlip/flip.js"></script>
 </body>
 
 </html>

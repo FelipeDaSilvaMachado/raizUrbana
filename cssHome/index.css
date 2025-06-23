@@ -11,32 +11,41 @@ body {
   background-color: #eeeeff;
 }
 
+/* HEADER STYLES (mesmo da versão anterior) */
+.header {
+  position: fixed;
+  overflow: visible;
+  width: 100%;
+  z-index: 1000;
+}
+
+img {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
 /* LOGO */
 .logo {
   display: flex;
-  align-items: center;
-  font-size: 24px;
-  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 20px;
 }
 
-.logo-text {
-  font-family: 'Holtwood One SC', serif;
-  color: #000;
-  font-size: 28px;
-}
-
-.logo-img {
-  width: 60px;
-  height: 60px;
-}
-
-.top-bar {
+.cabeçalho {
+  background-color: #EBEBF4;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  padding: 10px 20px;
-  background-color: #f5f5f5;
+  justify-content: center;
+}
+
+.cabeçalho h1{
+  font-size:35px;
+}
+
+.cabeçalho img {
+  height: 50px;
+  width: 50px;
 }
 
 .social-icons {
@@ -60,88 +69,73 @@ body {
   cursor: pointer;
 }
 
-
-/* Carrinho alinhado à direita da barra de navegação */
-.carrinho {     
-  display: flex;
-  float: inline-end;
-  align-items: center;
-  padding-right: 20px;    /* espaço do lado direito */
-}
-
-
-.carrinho img {
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.carrinho img:hover {
-  transform: scale(1.1);
-}
-
-/* NAV */
-nav {
-  background: #111;
-  padding: 10px 0;
-}
-
-.nav-container {
-
+.navegação {
+  background-color: black;
+  width: 100%;
+  height: 65px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: center;    
-  position: relative;
+  justify-content: center; /* centraliza o conteúdo principal */
+  position: fixed;
+  z-index: 100;
+  margin-top: 55px;
 }
 
-.menu {
+.menu-centro {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.menu-centro ul {
+  display: flex;
   list-style: none;
-  display: flex;
-  gap: 40px;
-  align-items: center;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
 }
 
-.menu a {
-  text-decoration: none;
+.menu-centro ul li {
   font-size: 18px;
-  font-family: 'Holtwood One SC', serif;
-  color: #33cc00;
-}
-
-.dropdown {
   position: relative;
+  transition: 0.2s ease;
 }
 
-.dropdown:hover .submenu,
-.dropdown .submenu:hover {
-  display: block;
+.menu-centro ul li a {
+  text-decoration: none;
+  color: #47a603;
 }
 
-.dropdown .submenu {
-  position: absolute;
+.navegação a:hover {
+  color: #6a1c91;
+}
+
+.navegação ul li .dropdown {
   display: none;
+  position: absolute;
   top: 100%;
   left: 0;
-  background: #222;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  border-radius: 5px;
-  z-index: 1000;
-  min-width: 150px;
+  background-color: black;
+  min-width: 160px;
+  z-index: 9999;
+  padding: 0 0 5px 0;
+  border-radius: 10px;
 }
 
-.submenu li a {
-  color: #33cc00;
-  padding: 10px 20px;
+.navegação ul li:hover .dropdown {
   display: block;
-  white-space: nowrap;
-  text-decoration: none;
+  animation: dropdownSlide 0.2s ease forwards;
 }
 
-.submenu li a:hover {
-  background-color: #333;
+.navegação ul li .dropdown li a {
+  padding: 10px 8px;
+  display: block;
+  color: #47a603;
+}
+
+.navegação ul li .dropdown li a:hover {
+  color: #6a1c91;
 }
 
 /* Carrinho */
@@ -155,10 +149,6 @@ nav {
   height: 35px;
   cursor: pointer;
   transition: transform 0.3s ease;
-}
-
-.carrinho img:hover {
-  transform: scale(1.1);
 }
 
 /* BANNER */
@@ -204,49 +194,85 @@ nav {
 
 /* RODAPÉ AJUSTADO */
 footer {
-  background: #111;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 40px 60px 20px;
-  font-size: 13px;
-  text-align: left;
-  position: relative;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 200px;
-  margin-bottom: 20px;
-}
-
-.footer-section h3 {
-  font-family: 'Holtwood One SC', serif;
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: whitesmoke;
-}
-
-.footer-section p {
-  margin: 6px 0;
-  font-weight: normal;
-}
-
-.whatsapp img {
-  width: 50px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-footer::after {
-  content: "© TODOS OS DIREITOS RESERVADOS RAIZ URBANA";
-  display: block;
   text-align: center;
   width: 100%;
-  margin-top: 20px;
-  font-size: 12px;
-  color: #999;
+  color: #EBEBF4;
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+.conteudo_rodape {
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 3rem, 3.5rem;
+}
+
+.footer-sobre {
+  margin-bottom: 0.75rem;
+}
+
+.link-sobre{
+  color: white;
+}
+
+.link-sobre:hover{
+  color: #6a1c91;
+  transition: all 0.3s;
+}
+
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 7px;
+  list-style: none;
+}
+
+
+.footer-list .footer-link {
+  color: white;
+  transition: all 0.3s;
+}
+
+.footer-list .footer-link:hover {
+  color: #6a1c91;
+}
+
+.footer-contato {
+  color: whtie;
+  margin:5px;
+  margin-bottom: -5px;
+}
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: #EBEBF4;
+  font-size: 10px;
+  padding: 1.5rem;
+  font-weight: 100;
+}
+
+.whatsapp {
+width: 50px;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
+}
+
+/* Animação do dropdown descendo */
+@keyframes dropdownSlide {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
 }

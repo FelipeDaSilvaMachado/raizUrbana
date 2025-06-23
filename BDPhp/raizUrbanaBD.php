@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             error_log("Erro de PDO no cadastro: " . $e->getMessage());
             echo (["sucesso" => false, "mensagem" => "Erro interno no servidor ao processar o cadastro."]);
             exit;
-        }        
+        }
     } else if ($acao === "logar") {
         $email = trim($_POST["email"] ?? "");
         $senha = $_POST["senha"] ?? "";
@@ -208,11 +208,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "email" => $usuario["email"]
         ];
 
-        echo ([
+        echo (json_encode([
             "sucesso" => true,
             "mensagem" => "Login realizado com sucesso!",
             "usuario" => $_SESSION["usuario"]
-        ]);
+        ]));
         header("Location: ../index.html");
         exit;
     } else {
@@ -226,4 +226,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header("Location: ../usuario/cadLogUsuarios.html");
     exit;
 }
-?>

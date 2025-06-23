@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Holtwood One SC", serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 200px;
+  min-height: calc(100vh - 180px);
+}
+
+/* HEADER STYLES (mesmo da versão anterior) */
+.header {
+    position: fixed;
+    overflow: visible;
+    width: 100%;
+    z-index: 1000;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+}
+
+.logo{
+    display: flex;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.cabeçalho {
+    background-color: #EBEBF4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabeçalho h1{
+    font-size:35px;
+}
+
+.cabeçalho img {
+    height: 50px;
+    width: 50px;
+}
+
+.social-icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    cursor: pointer;
+  }
+  
+  /* SOCIAL ICONS */
+  .social-icons img {
+    width: 24px;
+    height: 24px; 
+    cursor: pointer;
+  }
+
+.navegação {
+    background-color: black;
+    width: 100%;
+    height: 65px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centraliza o conteúdo principal */
+    position: fixed;
+    z-index: 100;
+    margin-top: 55px;
+  }
+  
+  .menu-centro {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .menu-centro ul {
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-centro ul li {
+    font-size: 18px;
+    position: relative;
+    transition: 0.2s ease;
+  }
+  
+  .menu-centro ul li a {
+    text-decoration: none;
+    color: #47a603;
+  }
+  
+  .navegação a:hover {
+    color: #6a1c91;
+  }
+  
+  .navegação ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    min-width: 160px;
+    z-index: 9999;
+    padding: 0 0 5px 0;
+    border-radius: 10px;
+  }
+  
+  .navegação ul li:hover .dropdown {
+    display: block;
+    animation: dropdownSlide 0.2s ease forwards;
+  }
+  
+  .navegação ul li .dropdown li a {
+    padding: 10px 8px;
+    display: block;
+    color: #47a603;
+  }
+  
+  .navegação ul li .dropdown li a:hover {
+    color: #6a1c91;
+  }
+  
+  .carrinho {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carrinho img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+/* AUTH CONTAINER */
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  perspective: 1000px;
+  margin-top: 100px;
+}
+
+.auth-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  background: #f8f9fa;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+  color: #6b1e88;
+  background: white;
+  border-bottom-color: #6b1e88;
+}
+
+.tab-button:hover:not(.active) {
+  background: #e9ecef;
+}
+
+/* TAB CONTENT */
+.tab-content {
+  display: none;
+  padding: 50px;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-section h2 {
+  font-family: "Holtwood One SC", serif;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-family: Arial, sans-serif;
+  color: #666;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* FORM STYLES */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-group.span-2 {
+  grid-column: span 2;
+}
+
+label {
+  font-family: Arial, sans-serif;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #6b1e88;
+  box-shadow: 0 0 0 3px rgba(107, 30, 136, 0.1);
+}
+
+.btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6b1e88 0%, #9c27b0 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(107, 30, 136, 0.3);
+}
+
+/* FOOTER (mesmo da versão anterior) */
+footer {
+    text-align: center;
+    width: 100%;
+    color: #EBEBF4;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.conteudo_rodape {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem, 3.5rem;
+}
+
+.footer-sobre {
+    margin-bottom: 0.75rem;
+}
+
+.link-sobre{
+    color: white;
+}
+
+.link-sobre:hover{
+    color: #6a1c91;
+    transition: all 0.3s;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 7px;
+    list-style: none;
+}
+
+
+.footer-list .footer-link {
+    color: white;
+    transition: all 0.3s;
+}
+
+.footer-list .footer-link:hover {
+    color: #6a1c91;
+}
+
+.footer-contato {
+    color: whtie;
+    margin:5px;
+    margin-bottom: -5px;
+}
+
+#footer_copyright {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: #EBEBF4;
+    font-size: 10px;
+    padding: 1.5rem;
+    font-weight: 100;
+}
+
+.whatsapp {
+  width: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  }
+
+/* Animação do dropdown descendo */
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .tab-content {
+    padding: 30px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.span-2 {
+    grid-column: span 1;
+  }
+
+  .welcome-section h2 {
+    font-size: 24px;
+  }
+
+  .conteudo_rodape {
+    flex-direction: column;
+    text-align: center;
+  }
+}
