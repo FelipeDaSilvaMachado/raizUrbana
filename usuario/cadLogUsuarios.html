@@ -32,7 +32,7 @@
     <nav class="navegação">
         <div class="menu-centro">
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="../index.html">HOME</a></li>
                 <li>
                     <a href="#">VESTUÁRIO</a>
                     <ul class="dropdown">
@@ -70,7 +70,7 @@
                     </div>
 
                     <form id="loginForm" method="POST" action="../BDPhp/raizurbanabd.php">
-                        <input type="hidden" name="acao" value="logar" />
+                        <input type="hidden" name="acao" value="logar"/>
                         <div class="form-group">
                             <label for="emailLogin">E-mail</label>
                             <input type="email" name="email" id="emailLogin" placeholder="seu@email.com" required />
@@ -80,7 +80,12 @@
                             <label for="senhaLogin">Senha</label>
                             <input type="password" name="senha" id="senhaLogin" placeholder="••••••" required />
                         </div>
-                        <button class="btn btn-primary" type="submit">Entrar na Conta</button>
+                        <div class="divBtns">
+                            <button class="btn btn-primary" type="submit" id="btnLogar">
+                                Entrar na Conta</button>
+                            <button class="btn btn-primary" type="button" id="btnCancelarLogin">
+                                Cancelar Login</button>
+                        </div>
                         <p>Não tem uma conta? <button class="tab-button"
                                 onclick="showTab('cadastrar')">Cadastre-se</button></p>
                     </form>
@@ -95,7 +100,6 @@
 
                     <form id="registerForm" method="POST" action="../BDPhp/raizurbanabd.php">
                         <input type="hidden" name="acao" value="cadastrar" />
-
                         <div class="form-grid">
                             <div class="form-group span-2">
                                 <label for="nomeUsuario">Nome Completo *</label>
@@ -177,11 +181,14 @@
                                 <input type="text" name="uf" id="uf" maxlength="2" required />
                             </div>
                         </div>
-
-                        <button class="btn btn-primary" type="submit">Criar Conta</button>
+                        <div class="divBtns">
+                            <button class="btn btn-primary" type="submit" id="btnCadastrar">
+                                Criar Conta</button>
+                            <button class="btn btn-primary" type="button" id="btnCancelar">
+                                Cancelar Cadastro</button>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </main>

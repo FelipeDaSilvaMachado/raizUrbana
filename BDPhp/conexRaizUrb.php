@@ -13,4 +13,3 @@ try {
     error_log("Erro na conexao com o banco: " . $e->getMessage());
     $pdo = null; // Indica falha na conexão
 }
-?>

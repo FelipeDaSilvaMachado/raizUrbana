@@ -41,18 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"]) && $_POST["ac
 
 // Logica para POST requests (cadastro e login)
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $acao = $_POST["acao"] ?? "";
-
-    if ($acao === "cancelarCadastro") {
-        header("Location: ../index.html");
-        exit;
-    }
-
-    if ($acao === "cancelarLogin") {
-        header("Location: ../usuario/cadLogUsuarios.html");
-        exit;
-    }
-
+    // $acao = $_POST["acao"] ?? "";
     if ($acao === "cadastrar") {
         // Coleta e limpeza de dados do POST
         $nomeUsuario = trim($_POST["nomeUsuario"] ?? "");
@@ -73,23 +62,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Validações robustas no backend
         if (empty($nomeUsuario) || empty($email) || empty($senha) || empty($confirmarSenha) || empty($cpf) || empty($genero) || empty($celular) || empty($dataNasc) || empty($rua) || empty($numero) || empty($bairro) || empty($cidade) || empty($uf) || empty($cep)) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "Todos os campos marcados como obrigatorios (*) devem ser preenchidos."]));
-            header("Location: ../index.html");
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Todos os campos marcados como obrigatorios (*) devem ser preenchidos."));
             exit;
         }
 
         if ($senha !== $confirmarSenha) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "As senhas nao coincidem."]));
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("As senhas nao coincidem."));
             exit;
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "Formato de e-mail invalido."]));
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Formato de e-mail invalido."));
             exit;
         }
 
         if (strlen($senha) < 6) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "A senha deve ter pelo menos 6 caracteres."]));
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("A senha deve ter pelo menos 6 caracteres."));
             exit;
         }
 
@@ -99,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmtEmail->bindParam(":email", $email, PDO::PARAM_STR);
             $stmtEmail->execute();
             if ($stmtEmail->rowCount() > 0) {
-                echo (json_encode(["sucesso" => false, "mensagem" => "Este e-mail ja esta cadastrado."]));
+                header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Este e-mail ja esta cadastrado."));
                 exit;
             }
 
@@ -108,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmtCpf->bindParam(":cpf", $cpf, PDO::PARAM_STR);
             $stmtCpf->execute();
             if ($stmtCpf->rowCount() > 0) {
-                echo (json_encode(["sucesso" => false, "mensagem" => "Este CPF ja esta cadastrado."]));
+                header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Este CPF ja esta cadastrado."));
                 exit;
             }
 
@@ -159,19 +147,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $pdo->commit();
 
                 // Resposta de sucesso
-                echo (json_encode(["sucesso" => true, "mensagem" => "Cadastro realizado com sucesso!"]));
-                header("Location: ../usuario/cadUsuarioLogin.html");
+                header("Location: ../usuario/cadLogUsuarios.html?sucesso=" . urlencode("Cadastro realizado com sucesso!"));
+                exit;
             } catch (Exception $e) {
                 // Rollback em caso de erro na transaçao
                 $pdo->rollBack();
                 error_log("Erro durante a transaçao de cadastro: " . $e->getMessage());
-                echo (json_encode(["sucesso" => false, "mensagem" => "Erro ao salvar os dados. Tente novamente."]));
+                header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Erro ao salvar os dados. Tente novamente."));
                 exit;
             }
         } catch (PDOException $e) {
             // Erro geral de PDO (conexao, preparaçao inicial)
             error_log("Erro de PDO no cadastro: " . $e->getMessage());
-            echo (["sucesso" => false, "mensagem" => "Erro interno no servidor ao processar o cadastro."]);
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Erro interno no servidor ao processar o cadastro."));
             exit;
         }
     } else if ($acao === "logar") {
@@ -180,8 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (empty($email) || empty($senha)) {
             // $myeCode = $pdo->errorCode(400);
-            echo (json_encode(["sucesso" => false, "mensagem" => "Email e senha sao obrigatorios."]));
-            header("Location: ../usuario/cadLogUsuarios.html");
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Email e senha sao obrigatorios."));
             exit;
         }
 
@@ -190,16 +177,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmtLogin->execute();
 
         if ($stmtLogin->rowCount() === 0) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "Email ou senha incorretos."]));
-            header("Location: ../usuario/cadLogUsuarios.html");
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Email ou senha incorretos."));
             exit;
         }
 
         $usuario = $stmtLogin->fetch(PDO::FETCH_ASSOC);
 
         if (!password_verify($senha, $usuario["senha"])) {
-            echo (json_encode(["sucesso" => false, "mensagem" => "Email ou senha incorretos."]));
-            header("Location: ../usuario/cadLogUsuarios.html");
+            header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Email ou senha incorretos."));
             exit;
         }
 
@@ -208,21 +193,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "email" => $usuario["email"]
         ];
 
-        echo (json_encode([
-            "sucesso" => true,
-            "mensagem" => "Login realizado com sucesso!",
-            "usuario" => $_SESSION["usuario"]
-        ]));
-        header("Location: ../index.html");
+        // Redireciona para a página inicial após o login
+        header("Location: ../../index.html?sucesso=" . urlencode("Login realizado com sucesso!"));
         exit;
     } else {
         // Açao invalida para POST
-        echo (["sucesso" => false, "mensagem" => "Açao POST invalida."]);
-        header("Location: ../usuario/cadLogUsuarios.html");
+        header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Açao POST invalida."));
         exit;
     }
 } else {
-    echo (["sucesso" => false, "mensagem" => "Metodo nao permitido. Use POST para cadastro ou login e GET para verificaçao de sessao."]);
-    header("Location: ../usuario/cadLogUsuarios.html");
+    header("Location: ../usuario/cadLogUsuarios.html?erro=" . urlencode("Metodo nao permitido. Use POST para cadastro ou login e GET para verificaçao de sessao."));
     exit;
 }

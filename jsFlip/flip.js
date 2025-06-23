@@ -34,4 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
       e.target.value = value
     })
   }
-})
+
+  // Lidar com o clique do botão "Cancelar Login"
+  const btnCancelarLogin = document.getElementById("btnCancelarLogin");
+  if (btnCancelarLogin) {
+    btnCancelarLogin.addEventListener("click", () => {
+      window.location.href = "../usuario/cadLogUsuarios.html";
+    });
+  }
+
+  // Lidar com o clique do botão "Cancelar Cadastro"
+  const btnCancelar = document.getElementById("btnCancelar");
+  if (btnCancelar) {
+    btnCancelar.addEventListener("click", () => {
+      window.location.href = "../index.html";
+    });
+  }
+});
