@@ -93,7 +93,7 @@
         <?php else: ?>
             <div class="card_container">
                 <?php foreach ($produtos as $p): ?>
-                <!-- Seu código atual de cards aqui -->
+                <!-- código atual de cards aqui -->
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
