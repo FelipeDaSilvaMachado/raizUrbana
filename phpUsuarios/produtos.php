@@ -14,8 +14,7 @@ $categorias = $stmt_categorias->fetchAll(PDO::FETCH_ASSOC);
 $sql = "SELECT p.id, p.nome_peca, p.cor, p.preco, g.nome_genero, p.imagem, c.nome_categoria
         FROM peca p
         JOIN genero g ON g.id = p.id_genero
-        JOIN categoria c ON c.id = p.id_categoria
-        WHERE (g.nome_genero = 'Masculino' OR g.nome_genero = 'Unissex')";
+        JOIN categoria c ON c.id = p.id_categoria";
 
 // Adiciona filtro de categoria se foi selecionado
 if ($filtro_categoria) {
@@ -32,6 +31,6 @@ if ($filtro_categoria) {
 $stmt->execute();
 $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include '../usuario/HTML_modaMaculina.php';
+include '../usuario/HTML_produtos.php';
 
 ?>

@@ -1,0 +1,67 @@
+body {
+            background-color: #efeff7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1b1b1b;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .produto-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+        }
+
+        h1 {
+            font-family: 'Holtwood One SC', serif;
+            font-size: 2.2rem;
+            color: #4c1c80;
+            margin-bottom: 20px;
+        }
+
+        .produto-imagem {
+            max-width: 250px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+        }
+
+        .info {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .info strong {
+            color: #4c1c80;
+        }
+
+        .botoes {
+            margin-top: 30px;
+        }
+
+        .botoes button {
+            background-color: #4c1c80;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 12px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botoes button:hover {
+            background-color: #36115d;
+        }
+
+        #retornar {
+            background-color: #38a169;
+        }
+        #excluir {
+            background-color: #e3342f;
+        }
