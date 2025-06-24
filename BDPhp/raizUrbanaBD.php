@@ -41,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["acao"]) && $_POST["ac
 
 // Logica para POST requests (cadastro e login)
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // $acao = $_POST["acao"] ?? "";
     if ($acao === "cadastrar") {
         // Coleta e limpeza de dados do POST
         $nomeUsuario = trim($_POST["nomeUsuario"] ?? "");
