@@ -28,173 +28,141 @@ img {
     overflow: visible;
     width: 100%;
     z-index: 1000;
-}
-
-.logo{
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  
+  }
+  
+  .logo {
     display: flex;
     margin-bottom: 8px;
-}
-
-.cabeçalho {
+    font-size: 20px;
+  }
+  
+  .cabeçalho {
     background-color: #EBEBF4;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.cabeçalho h1{
-    font-size:35px;
-}
-
-.cabeçalho img {
+  }
+  
+  .cabeçalho h1 {
+    font-size: 35px;
+  }
+  
+  .cabeçalho img {
     height: 50px;
     width: 50px;
-}
-
-.social-icons {
+  }
+  
+  .social-icons {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     gap: 10px;
-    padding: 10px 20px 50px 20px;
-}
-
-  .social-icons img {
-    width: 24px;
-    cursor: pointer;
-}
+  }
   
   .social-icons img {
     width: 24px;
-    height: 24px; 
     cursor: pointer;
-}
-
-.navegação {
+  }
+  
+  /* SOCIAL ICONS */
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .navegação {
     background-color: black;
     width: 100%;
     height: 65px;
-    padding: 0px 250px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
+    justify-content: center;
+    /* centraliza o conteúdo principal */
+    position: fixed;
     z-index: 100;
-    overflow: visible; 
-}
-
-.menu-centro {
+    margin-top: 55px;
+  }
+  
+  .menu-centro {
     display: flex;
     justify-content: center;
     flex: 1;
-}
-
-.menu-centro ul {
+  }
+  
+  .menu-centro ul {
     display: flex;
     list-style: none;
     gap: 100px;
     margin: 0;
     padding: 0;
-}
-
-.menu-centro ul li {
+  }
+  
+  .menu-centro ul li {
     font-size: 18px;
     position: relative;
     transition: 0.2s ease;
-}
-
-.menu-centro ul li a {
+  }
+  
+  .menu-centro ul li a {
     text-decoration: none;
     color: #47a603;
-
-}
-
-.navegação ul{
-    display: flex;
-    list-style: none;
-    position:relative;
-    gap:100px;
-}
-
-.navegação ul li{
-    position: relative;
-    font-size: 18px;
-    transition: 0.2s ease;
-}
-
-
-.navegação ul li a {
-    text-decoration: none;
-    color: #47a603;
-}
-
-/* Aplica a barra dourada APENAS nos links que NÃO têm dropdown */
-.navegação ul li:not(:has(ul.dropdown)) > a::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    background-color: #FFD700;
-    transition: 0.2s ease;
-}
-
-/* Efeito de hover apenas nesses links */
-.navegação ul li:not(:has(ul.dropdown)) > a:hover::before {
-    width: 100%;
-}
-
-
-.navegação a:hover{
+  }
+  
+  .navegação a:hover {
     color: #6a1c91;
-}
-
-.navegação a:hover::before{
-    width: 100%;
-}
-
-
-.navegação ul li .dropdown {
+  }
+  
+  .navegação ul li .dropdown {
     display: none;
     position: absolute;
-    top: 100%;            
+    top: 100%;
     left: 0;
     background-color: black;
     min-width: 160px;
-    z-index: 9999;          
-    padding: 0;
-    padding-bottom: 5px;
+    z-index: 9999;
+    padding: 0 0 5px 0;
     border-radius: 10px;
-}
-
-.navegação ul li:hover .dropdown {
+  }
+  
+  .navegação ul li:hover .dropdown {
     display: block;
     animation: dropdownSlide 0.2s ease forwards;
-}
-
-.navegação ul li .dropdown li {
-    display: block;
-}
-
-.navegação ul li .dropdown li a {
+  }
+  
+  .navegação ul li .dropdown li a {
     padding: 10px 8px;
     display: block;
     color: #47a603;
-}
-
-.navegação ul li .dropdown li a:hover {
-    color: #6a1c91; 
-}
-
-.carrinho {
+  }
+  
+  .navegação ul li .dropdown li a:hover {
+    color: #6a1c91;
+  }
+  
+  .carrinho {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-}
+  }
+  
+  .carrinho img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
   
 .carrinho img {
     width: 40px;
@@ -208,7 +176,7 @@ img {
     display: flex;
     justify-content: center;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 130px;
     margin-bottom: -13px;
 }
 
@@ -372,6 +340,7 @@ footer {
 
 .footer-link {
     text-decoration: none;
+
 }
 
 .conteudo_rodape {
@@ -387,7 +356,7 @@ footer {
 
 
 .link-sobre{
-    color: #52525b;
+    color: #EBEBF4;
 }
 
 .link-sobre:hover{
@@ -405,7 +374,7 @@ footer {
 
 
 .footer-list .footer-link {
-    color: #52525b;
+    color: #EBEBF4;
     transition: all 0.3s;
 }
 
@@ -414,7 +383,7 @@ footer {
 }
 
 .footer-contato {
-    color: #52525b;
+    color: #EBEBF4;
     margin:5px;
     margin-bottom: -5px;
 }
@@ -428,6 +397,14 @@ footer {
     padding: 1.5rem;
     font-weight: 100;
 }
+
+.whatsapp {
+    width: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    }
 
 /* Animação do dropdown */
 @keyframes dropdownSlide {
